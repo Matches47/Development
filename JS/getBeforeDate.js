@@ -1,14 +1,18 @@
 //* 快速選擇日期 start //
 
-$(":submit").click(function getBeforeDate() {
+$("#buttonID").click(function getBeforeDate() {
 
+    // 取得當前時間 //
     let currentDate = new Date();
+    // console.log(currentDate); // Thu May 26 2022 10:16:17 GMT+0800 (台北標準時間)
 
-    let before7 = currentDate.setDate(currentDate.getDate() - 7); //獲取七天前的時間戳
-    let date7 = new Date(before7); //毫秒轉日期
+    // 轉換成七天前的時間 //
+    currentDate.setDate(currentDate.getDate() - 7);
+    // console.log(currentDate); // Thu May 19 2022 10:16:17 GMT+0800 (台北標準時間)
 
-    $("#start").val(date7.toLocaleString('zh', { hour12: false }).replace(/\//g, '-')); // 設定起始日期及調整欄位格式
-    $("#end").val(new Date().toLocaleString('zh', { hour12: false }).replace(/\//g, '-')); // 設定結束日期及調整欄位格式
+    // 設定起始與結束日期,轉換日期格式為 yyyy/mm/dd hh:mm:ss //
+    $("#startDateID").val(currentDate.toLocaleString('zh', { hour12: false }));
+    $("#endDateID").val(new Date().toLocaleString('zh', { hour12: false }));
 
 });
 
